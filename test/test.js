@@ -59,7 +59,7 @@ describe('superagent-proxy', function () {
       request
       .get(httpLink)
       .proxy(proxy)
-      .end(function (res) {
+      .end(function (err, res) {
         var data = res.body;
         assert('ip' in data);
         var ips = data.ip.split(/\,\s*/g);
@@ -75,7 +75,7 @@ describe('superagent-proxy', function () {
       request
       .get(httpsLink)
       .proxy(proxy)
-      .end(function (res) {
+      .end(function (err, res) {
         var data = JSON.parse(res.text);
         assert.equal('tootallnate', data.username);
         done();
@@ -93,7 +93,7 @@ describe('superagent-proxy', function () {
       request
       .get(httpLink)
       .proxy(p)
-      .end(function (res) {
+      .end(function (err, res) {
         var data = res.body;
         assert('ip' in data);
         var ips = data.ip.split(/\,\s*/g);
@@ -112,7 +112,7 @@ describe('superagent-proxy', function () {
       request
       .get(httpsLink)
       .proxy(p)
-      .end(function (res) {
+      .end(function (err, res) {
         var data = JSON.parse(res.text);
         assert.equal('tootallnate', data.username);
         done();
@@ -127,7 +127,7 @@ describe('superagent-proxy', function () {
       request
       .get(httpLink)
       .proxy(proxy)
-      .end(function (res) {
+      .end(function (err, res) {
         var data = res.body;
         assert('ip' in data);
         var ips = data.ip.split(/\,\s*/g);
@@ -143,7 +143,7 @@ describe('superagent-proxy', function () {
       request
       .get(httpsLink)
       .proxy(proxy)
-      .end(function (res) {
+      .end(function (err, res) {
         var data = JSON.parse(res.text);
         assert.equal('tootallnate', data.username);
         done();
