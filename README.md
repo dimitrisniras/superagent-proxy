@@ -77,3 +77,41 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 [superagent]: https://github.com/visionmedia/superagent
 [proxy-agent]: https://github.com/TooTallNate/node-proxy-agent
 [proxy-agent-readme]: https://github.com/TooTallNate/node-proxy-agent/blob/master/README.md
+
+
+How to contribute
+-----------------
+
+
+## Install it
+
+```bash
+nvm use
+npm i
+```
+
+## run test
+if you don't have a running test, you can run a local squid. open a separate terminal run
+
+```bash
+docker run -p 3128:3128 ubuntu/squid:5.2-22.04_beta
+```
+
+then from your first terminal, set the env vars and run the tests with: 
+
+```bash
+export HTTP_PROXY=http://127.0.0.1:3128
+
+npm test
+```
+
+
+note: 
+sometimes ctrl+c does not kill squid, so from another terminal just run: 
+```bash
+docker stop $(docker ps | grep squid | awk '{print $1}')
+```
+
+
+
+
